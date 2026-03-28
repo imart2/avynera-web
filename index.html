@@ -1,110 +1,341 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Avynera - Smart Health Tracker</title>
-<style>
-body{
-font-family: Arial, sans-serif;
-margin:0;
-background:#f7f9fc;
-color:#333;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Avynera — Smart Health Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-950: #020617;
+      --navy-900: #0b1223;
+      --teal: #14b8a6;
+      --blue: #3b82f6;
+      --blue-soft: #60a5fa;
+      --text: #f1f5f9;
+      --text-muted: rgba(226, 232, 240, 0.78);
+      --border: rgba(148, 163, 184, 0.2);
+      --glass: rgba(15, 23, 42, 0.55);
+      --glass-light: rgba(255, 255, 255, 0.06);
+    }
 
-header{
-background:#4A8CF7;
-color:white;
-padding:40px;
-text-align:center;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-section{
-padding:40px;
-max-width:900px;
-margin:auto;
-}
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      background: var(--navy-950);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
 
-.feature{
-margin-bottom:25px;
-}
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.25), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(59, 130, 246, 0.2), transparent),
+        radial-gradient(ellipse 50% 30% at 0% 100%, rgba(59, 130, 246, 0.12), transparent),
+        var(--navy-950);
+      pointer-events: none;
+    }
 
-footer{
-background:#222;
-color:white;
-text-align:center;
-padding:20px;
-}
-</style>
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 20px 80px;
+    }
+
+    header.hero {
+      padding: 48px 0 56px;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--glass-light);
+      backdrop-filter: blur(12px);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-soft);
+      margin-bottom: 20px;
+    }
+
+    .badge span {
+      color: var(--teal);
+    }
+
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 12px;
+      background: linear-gradient(135deg, #fff 0%, #bae6fd 45%, #5eead4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p.lead {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 28px;
+      font-weight: 600;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 16px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, opacity 0.15s;
+    }
+
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn-primary {
+      color: #fff;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.95), rgba(59, 130, 246, 0.85));
+      box-shadow: 0 12px 40px rgba(20, 184, 166, 0.25), 0 4px 12px rgba(15, 23, 42, 0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 16px 48px rgba(20, 184, 166, 0.35), 0 6px 16px rgba(15, 23, 42, 0.5);
+    }
+
+    .btn-store {
+      color: var(--text);
+      background: var(--glass);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+    }
+
+    .btn-store:hover {
+      border-color: rgba(20, 184, 166, 0.4);
+      background: rgba(15, 23, 42, 0.75);
+    }
+
+    .btn svg {
+      flex-shrink: 0;
+    }
+
+    section {
+      margin-top: 20px;
+    }
+
+    .card {
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: rgba(11, 18, 35, 0.65);
+      backdrop-filter: blur(20px);
+      padding: 28px 28px 32px;
+      margin-bottom: 20px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h2 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      margin: 0 0 16px;
+      letter-spacing: -0.02em;
+      color: #fff;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .feature {
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      background: linear-gradient(145deg, rgba(20, 184, 166, 0.08), rgba(59, 130, 246, 0.05));
+      padding: 20px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .feature:hover {
+      border-color: rgba(20, 184, 166, 0.35);
+      transform: translateY(-2px);
+    }
+
+    .feature b {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #e2e8f0;
+      margin-bottom: 8px;
+    }
+
+    .feature p {
+      font-size: 0.88rem;
+      font-weight: 600;
+      line-height: 1.55;
+    }
+
+    .icon-pill {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, rgba(20, 184, 166, 0.35), rgba(59, 130, 246, 0.25));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    footer {
+      margin-top: 48px;
+      padding: 28px 20px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    footer a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 520px) {
+      .cta-row {
+        flex-direction: column;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="bg-mesh" aria-hidden="true"></div>
 
-<header>
-<h1>Avynera</h1>
-<p>Smart Health Tracking & AI Health Assistant</p>
-</header>
+  <div class="wrap">
+    <header class="hero">
+      <div class="badge"><span>✦</span> Avynera Health</div>
+      <h1>Avynera</h1>
+      <p class="lead">Smart health tracking &amp; AI assistant — same calm, premium feel as the app: clear metrics, gentle insights, and tools that stay out of your way.</p>
 
-<section>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.fahmi212.avynera" target="_blank" rel="noopener noreferrer" id="download-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M12 3v10m0 0l-4-4m4 4l4-4M5 21h14a2 2 0 002-2v-4H3v4a2 2 0 002 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Download aplikasi
+        </a>
+        <a class="btn btn-store" href="https://play.google.com/store/apps/details?id=com.fahmi212.avynera" target="_blank" rel="noopener noreferrer">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5v-17c0-.59.34-1.11.84-1.35L13.69 12 3.84 21.85c-.5-.24-.84-.76-.84-1.35zm13.81-5.38L6.05 21.34l8.49-8.49 2.27 2.27zm3.35-4.31l-2.27 2.27L21.95 12l-2.79-2.79zm-3.35-4.31L6.05 2.66l10.76 6.22-2.27 2.27z"/></svg>
+          Google Play
+        </a>
+        <a class="btn btn-store" href="#" title="App Store — segera hadir" onclick="return false;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          App Store
+        </a>
+      </div>
+      <p style="margin-top: 18px; font-size: 0.8rem; color: rgba(148,163,184,0.9); font-weight: 600;">Tip: ubah href tombol utama jika Anda membagikan APK langsung atau halaman rilis lain.</p>
+    </header>
 
-<h2>About Avynera</h2>
+    <section class="card">
+      <h2>About Avynera</h2>
+      <p>
+        Avynera is a modern health tracking application designed to help you monitor and improve your overall wellbeing.
+        Track weight, water, sleep, and mood; understand trends; and get helpful context through an AI-powered assistant — with a UI crafted to feel calm, focused, and premium.
+      </p>
+    </section>
 
-<p>
-Avynera is a modern health tracking application designed to help users monitor and improve their overall wellbeing. 
-The app allows users to track important health information, understand their body condition, and receive helpful health insights through an AI-powered assistant.
-</p>
+    <section class="card">
+      <h2>Main features</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <div class="icon-pill">📊</div>
+          <b>Health tracking</b>
+          <p>Important metrics and daily wellness data in one structured place — aligned with your goals.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-pill">🤖</div>
+          <b>AI health assistant</b>
+          <p>Ask questions and receive concise, practical guidance — with safety awareness built in.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-pill">✦</div>
+          <b>Personal insights</b>
+          <p>Coaching and analytics that reflect your actual data, not generic tips.</p>
+        </div>
+        <div class="feature">
+          <div class="icon-pill">◇</div>
+          <b>Thoughtful interface</b>
+          <p>Glass-style cards, soft gradients, and clarity-first layout — easy to use every day.</p>
+        </div>
+      </div>
+    </section>
 
-</section>
+    <section class="card">
+      <h2>Our mission</h2>
+      <p>
+        We want health tracking to feel simple, intelligent, and accessible. Avynera helps you understand your body with less friction and more confidence — wherever you are on your journey.
+      </p>
+    </section>
 
-<section>
+    <section class="card">
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:avynera.app@gmail.com" style="color: var(--teal);">avynera.app@gmail.com</a></p>
+    </section>
 
-<h2>Main Features</h2>
-
-<div class="feature">
-<b>Health Tracking</b>
-<p>Track important health metrics and daily wellness data in one place.</p>
-</div>
-
-<div class="feature">
-<b>AI Health Assistant</b>
-<p>Ask health-related questions and receive helpful insights powered by artificial intelligence.</p>
-</div>
-
-<div class="feature">
-<b>Personal Health Insights</b>
-<p>Get recommendations and insights based on your health data.</p>
-</div>
-
-<div class="feature">
-<b>User-Friendly Interface</b>
-<p>Designed with simplicity so anyone can easily track their health.</p>
-</div>
-
-</section>
-
-<section>
-
-<h2>Our Mission</h2>
-
-<p>
-Our mission is to make health tracking simple, intelligent, and accessible for everyone. 
-Avynera helps users understand their health better and encourages healthier lifestyles.
-</p>
-
-</section>
-
-<section>
-
-<h2>Contact</h2>
-
-<p>Email: avynera.app@gmail.com</p>
-
-</section>
-
-<footer>
-
-<p>© 2026 Avynera. All rights reserved.</p>
-
-</footer>
-
+    <footer>
+      <p>© 2026 Avynera. All rights reserved.</p>
+      <p style="margin-top: 8px;"><a href="https://avynera-app.vercel.app/">avynera-app.vercel.app</a></p>
+    </footer>
+  </div>
 </body>
 </html>
