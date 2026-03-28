@@ -1,89 +1,255 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Privacy Policy - Avynera</title>
-<style>
-body{
-font-family: Arial;
-max-width:900px;
-margin:auto;
-padding:40px;
-line-height:1.6;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Avynera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy-950: #020617;
+      --teal: #14b8a6;
+      --blue-soft: #60a5fa;
+      --text: #f1f5f9;
+      --text-muted: rgba(226, 232, 240, 0.82);
+      --border: rgba(148, 163, 184, 0.2);
+      --glass-light: rgba(255, 255, 255, 0.06);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+      background: var(--navy-950);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+    .bg-mesh {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(20, 184, 166, 0.22), transparent),
+        radial-gradient(ellipse 60% 40% at 100% 0%, rgba(59, 130, 246, 0.18), transparent),
+        var(--navy-950);
+      pointer-events: none;
+    }
+    .wrap {
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+    .top-nav {
+      margin-bottom: 28px;
+    }
+    .top-nav a {
+      color: var(--teal);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .top-nav a:hover { text-decoration: underline; }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: var(--glass-light);
+      backdrop-filter: blur(12px);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--blue-soft);
+      margin-bottom: 16px;
+    }
+    .badge span { color: var(--teal); }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 8px;
+      background: linear-gradient(135deg, #fff 0%, #bae6fd 50%, #5eead4 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .last-updated {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 28px;
+    }
+    .card {
+      border-radius: 22px;
+      border: 1px solid var(--border);
+      background: rgba(11, 18, 35, 0.72);
+      backdrop-filter: blur(20px);
+      padding: 26px 28px;
+      margin-bottom: 18px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+    }
+    h2 {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0 0 12px;
+      letter-spacing: -0.02em;
+    }
+    p, li {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin: 0 0 12px;
+    }
+    ul {
+      margin: 0 0 12px;
+      padding-left: 1.25rem;
+    }
+    li { margin-bottom: 8px; }
+    strong { color: #e2e8f0; font-weight: 800; }
+    footer {
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    footer a { color: var(--teal); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
 </head>
-
 <body>
+  <div class="bg-mesh" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="top-nav" aria-label="Breadcrumb">
+      <a href="avynera-landing.html">← Back to Avynera</a>
+    </nav>
 
-<h1>Privacy Policy</h1>
+    <div class="badge"><span>✦</span> Legal</div>
+    <h1>Privacy Policy</h1>
+    <p class="last-updated">Last updated: March 28, 2026</p>
 
-<p>Last updated: 2026</p>
+    <section class="card">
+      <h2>1. Introduction</h2>
+      <p>
+        Avynera (“we”, “our”, or “us”) provides a mobile health tracking application (the “App”).
+        This Privacy Policy describes how we collect, use, store, and share information when you use the App and related services connected to our servers.
+        By using Avynera, you agree to this Policy. If you do not agree, please do not use the App.
+      </p>
+    </section>
 
-<p>
-Avynera ("we", "our", or "us") respects your privacy. This Privacy Policy explains how we collect, use, and protect your information when you use the Avynera mobile application.
-</p>
+    <section class="card">
+      <h2>2. Information we collect</h2>
+      <p>Depending on how you use Avynera, we may process:</p>
+      <ul>
+        <li><strong>Account data:</strong> information you provide when registering or signing in (for example email address, username, and authentication credentials managed securely by our backend).</li>
+        <li><strong>Health &amp; wellness data you enter:</strong> daily metrics such as weight, water intake, sleep duration, mood, and optional notes — stored to power your dashboard, charts, goals, and insights.</li>
+        <li><strong>Preferences:</strong> language selection, daily goal targets (e.g. water, sleep, weight), and notification/reminder settings you configure in the App.</li>
+        <li><strong>Technical &amp; usage data:</strong> data needed to operate the service, such as device or app identifiers, timestamps, and diagnostic information when you interact with our API (for example to sync your entries or check premium status).</li>
+        <li><strong>Premium &amp; billing-related data:</strong> if you purchase or activate a premium package, our payment partner (e.g. Midtrans) may process payment-related information according to their terms; we may store order identifiers and payment status as needed to unlock premium features.</li>
+      </ul>
+    </section>
 
-<h2>Information We Collect</h2>
+    <section class="card">
+      <h2>3. How we use your information</h2>
+      <p>We use the information above to:</p>
+      <ul>
+        <li>Provide core features: logging health data, displaying progress, streaks, reminders, and history.</li>
+        <li>Synchronize data between your device and our servers when you are signed in, so your records stay aligned across sessions.</li>
+        <li>Offer <strong>premium features</strong> where applicable, such as AI-assisted coaching, analytics &amp; predictions, and AI health chat — which may send relevant portions of your profile or entries to our backend (and, where applicable, to AI services we use) to generate responses.</li>
+        <li>Process premium activation and payment status (including retries or status checks after checkout).</li>
+        <li>Improve reliability, security, and product experience.</li>
+      </ul>
+      <p>
+        <strong>Not medical advice:</strong> Avynera is for general wellness and informational purposes only.
+        It does not replace diagnosis or treatment by a qualified health professional.
+      </p>
+    </section>
 
-<p>We may collect the following types of information:</p>
+    <section class="card">
+      <h2>4. Local storage, backup, and PDF (on your device)</h2>
+      <p>
+        The App stores some data locally on your phone for performance and offline access.
+        If you use <strong>premium backup features</strong>, you may export data (for example as JSON or CSV) or import a backup file; those actions are initiated by you.
+      </p>
+      <p>
+        <strong>Monthly PDF reports</strong> (where available) are generated <strong>on your device</strong> from your local health data.
+        The App does not need to upload that PDF to our servers for it to be created; you choose how to share or store the file.
+      </p>
+    </section>
 
-<ul>
-<li>Basic user information</li>
-<li>Health-related data entered by users</li>
-<li>Device information</li>
-<li>App usage data</li>
-</ul>
+    <section class="card">
+      <h2>5. AI processing</h2>
+      <p>
+        Features such as coaching or AI health chat may send text and contextual information (for example your app language and relevant health fields) to our backend.
+        Our backend may use third-party AI providers to generate responses.
+        Do not submit emergency or highly sensitive information you would not want processed for this purpose.
+      </p>
+    </section>
 
-<h2>How We Use Your Information</h2>
+    <section class="card">
+      <h2>6. Third-party services</h2>
+      <p>
+        We may rely on service providers for hosting, authentication, payments, analytics, or AI.
+        Examples include <strong>payment processors</strong> (such as Midtrans for checkout in supported flows) and infrastructure or AI vendors.
+        Their use of data is governed by their respective policies in addition to this Policy where they act on our behalf.
+      </p>
+    </section>
 
-<p>Your information may be used to:</p>
+    <section class="card">
+      <h2>7. Data retention &amp; security</h2>
+      <p>
+        We retain information as long as needed to provide the service and comply with legal obligations.
+        We implement reasonable technical and organizational measures to protect your data; however, no electronic transmission or storage is 100% secure.
+      </p>
+    </section>
 
-<ul>
-<li>Provide and improve the application</li>
-<li>Generate health insights</li>
-<li>Respond to user inquiries</li>
-<li>Improve AI-based health assistance</li>
-</ul>
+    <section class="card">
+      <h2>8. Children’s privacy</h2>
+      <p>
+        Avynera is not directed at children under 13 (or the minimum age required in your jurisdiction).
+        We do not knowingly collect personal information from children. If you believe we have, please contact us so we can delete it.
+      </p>
+    </section>
 
-<h2>Data Security</h2>
+    <section class="card">
+      <h2>9. International users</h2>
+      <p>
+        Your information may be processed in countries where we or our providers operate.
+        By using the App, you understand that cross-border transfers may occur as needed to run the service.
+      </p>
+    </section>
 
-<p>
-We implement reasonable security measures to protect your information. However, no method of electronic storage is completely secure.
-</p>
+    <section class="card">
+      <h2>10. Changes to this policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time.
+        The “Last updated” date at the top will change when we do.
+        Continued use of Avynera after changes means you accept the updated Policy.
+      </p>
+    </section>
 
-<h2>Third-Party Services</h2>
+    <section class="card">
+      <h2>11. Contact us</h2>
+      <p>
+        For questions about this Privacy Policy or your data, contact us at:
+      </p>
+      <p><strong>Email:</strong> <a href="mailto:avynera.app@gmail.com" style="color: var(--teal);">avynera.app@gmail.com</a></p>
+    </section>
 
-<p>
-Avynera may use third-party services such as AI providers or analytics tools to improve functionality.
-</p>
-
-<h2>User Responsibility</h2>
-
-<p>
-Information provided by the application is for general informational purposes only and should not replace professional medical advice.
-</p>
-
-<h2>Children's Privacy</h2>
-
-<p>
-Avynera is not intended for children under 13 years old.
-</p>
-
-<h2>Changes to This Policy</h2>
-
-<p>
-We may update this Privacy Policy from time to time. Updates will be posted on this page.
-</p>
-
-<h2>Contact Us</h2>
-
-<p>
-If you have any questions about this Privacy Policy, you can contact us:
-</p>
-
-<p>Email: avynera.app@gmail.com</p>
-
+    <footer>
+      <p>© 2026 Avynera. All rights reserved.</p>
+      <p style="margin-top: 8px;"><a href="avynera-landing.html">avynera-app.vercel.app</a></p>
+    </footer>
+  </div>
 </body>
-
 </html>
